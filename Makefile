@@ -29,3 +29,8 @@ clean:
 update:
 	poetry cache clear pypi --all
 	poetry update
+
+
+docker:
+	docker build --no-cache -f Dockerfile -t change_me-smoke .
+	docker run --rm change_me-smoke
