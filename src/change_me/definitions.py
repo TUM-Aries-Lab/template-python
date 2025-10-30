@@ -1,6 +1,6 @@
 """Common definitions for this module."""
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import numpy as np
@@ -24,13 +24,19 @@ DUMMY_VARIABLE = "dummy_variable"
 
 @dataclass
 class LogLevel:
-    """Log levels for loguru."""
+    """Log level."""
 
+    trace: str = "TRACE"
     debug: str = "DEBUG"
     info: str = "INFO"
+    success: str = "SUCCESS"
     warning: str = "WARNING"
     error: str = "ERROR"
     critical: str = "CRITICAL"
+
+    def __iter__(self):
+        """Iterate over log levels."""
+        return iter(asdict(self).values())
 
 
 DEFAULT_LOG_LEVEL = LogLevel.info
