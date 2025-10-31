@@ -13,7 +13,7 @@ To install the library run: `pip install change-me`
 5. `poetry publish --build` to build and publish to https://pypi.org/project/change-me
 
 
-## Usage
+## Module Usage
 ```
 """Basic docstring for my module."""
 
@@ -25,4 +25,9 @@ logger.info("Hello World!")
 
 if __name__ == "__main__":
     main()
+```
+
+## Program Usage
+```bash
+poetry run python -m change_me
 ```
