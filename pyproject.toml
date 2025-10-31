@@ -91,4 +91,4 @@ indent-style = "space"  # Use spaces instead of tabs
 line-ending = "lf"      # Use LF for line endings (Unix standard)
 
 [tool.poetry.urls]
-homepage = "https://github.com/Tsmorz/template-python"
+homepage = "https://github.com/TUM-Aries-Lab/template-python"
