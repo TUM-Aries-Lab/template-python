@@ -13,16 +13,15 @@ We welcome issues, bug reports, feature requests, and pull requests.
 * Include steps to reproduce, expected behavior, and screenshots/logs if relevant.
 
 ### Making Changes
-1. Fork the repository.
-2. Create a new branch for your changes:
+1. Create a new branch for your changes:
    ```bash
-   git checkout -b feature/my-new-feature
+   git checkout -b my-new-feature
    ```
-3. Make your changes and commit with a clear message:
+2. Make your changes and commit with a clear message:
    ```bash
    git commit -m "Add feature: my-new-feature"
    ```
-4. Push to your fork and open a Pull Request (PR).
+3. Push to your fork and open a Pull Request (PR).
 
 ### Code Style
 * Follow the existing code style in the project.
