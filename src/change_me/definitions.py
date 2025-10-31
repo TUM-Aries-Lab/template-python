@@ -40,3 +40,4 @@ class LogLevel:
 
 
 DEFAULT_LOG_LEVEL = LogLevel.info
+DEFAULT_LOG_FILENAME = "log_file"

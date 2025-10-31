@@ -8,9 +8,16 @@ from change_me.definitions import DEFAULT_LOG_LEVEL, LogLevel
 from change_me.utils import setup_logger
 
 
-def main(log_level: str = DEFAULT_LOG_LEVEL) -> None:
-    """Run the pipeline."""
-    setup_logger(filename="log_file", log_dir=None, log_level=log_level)
+def main(
+    log_level: str = DEFAULT_LOG_LEVEL, stderr_level: str = DEFAULT_LOG_LEVEL
+) -> None:
+    """Run the main pipeline.
+
+    :param log_level: The log level to use.
+    :param stderr_level: The std err level to use.
+    :return: None
+    """
+    setup_logger(log_level=log_level, stderr_level=stderr_level)
     logger.info("Hello, world!")
 
 
@@ -21,6 +28,16 @@ if __name__ == "__main__":  # pragma: no cover
         default=DEFAULT_LOG_LEVEL,
         choices=list(LogLevel()),
         help="Set the log level.",
+        required=False,
+        type=str,
+    )
+    parser.add_argument(
+        "--stderr-level",
+        default=DEFAULT_LOG_LEVEL,
+        choices=list(LogLevel()),
+        help="Set the std err level.",
+        required=False,
+        type=str,
     )
     args = parser.parse_args()
 
