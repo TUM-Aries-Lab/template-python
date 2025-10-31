@@ -6,7 +6,13 @@ from pathlib import Path
 
 from loguru import logger
 
-from change_me.definitions import DATE_FORMAT, DEFAULT_LOG_LEVEL, ENCODING, LOG_DIR
+from change_me.definitions import (
+    DATE_FORMAT,
+    DEFAULT_LOG_FILENAME,
+    DEFAULT_LOG_LEVEL,
+    ENCODING,
+    LOG_DIR,
+)
 
 
 def create_timestamped_filepath(suffix: str, output_dir: Path, prefix: str) -> Path:
@@ -25,7 +31,7 @@ def create_timestamped_filepath(suffix: str, output_dir: Path, prefix: str) -> P
 
 
 def setup_logger(
-    filename: str,
+    filename: str = DEFAULT_LOG_FILENAME,
     stderr_level: str = DEFAULT_LOG_LEVEL,
     log_level: str = DEFAULT_LOG_LEVEL,
     log_dir: Path | None = None,
