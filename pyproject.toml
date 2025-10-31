@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "change-me"
-version = "0.0.1"
+version = "0.1.0a"
 description = "A simple Python template"
 authors = ["Tsmorz <tonysmoragiewicz@gmail.com>"]
 readme = "README.md"
