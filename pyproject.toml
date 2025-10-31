@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "change-me"
-version = "0.0.1"
+version = "0.1.0"
 description = "A simple Python template"
 authors = ["Tsmorz <tonysmoragiewicz@gmail.com>"]
 readme = "README.md"
@@ -13,8 +13,6 @@ pytest = "^8.3.5"
 pytest-cov = "^6.0.0"
 loguru = "^0.7.3"
 pre-commit = "^4.1.0"
-scipy = "^1.15.2"
-tqdm = "^4.67.1"
 poetry-core = "^2.1.2"
 
 [tool.poetry.group.dev.dependencies]
@@ -22,8 +20,6 @@ ruff = "^0.6.9"
 mypy = "^1.11"
 pytest = "^8.3"
 pytest-cov = "^6.0"
-pandas-stubs = "^2.2"
-scipy-stubs = "^1.11"
 
 [build-system]
 requires = ["poetry-core"]
