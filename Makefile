@@ -34,3 +34,6 @@ update:
 docker:
 	docker build --no-cache -f Dockerfile -t change_me-smoke .
 	docker run --rm change_me-smoke
+
+app:
+	poetry run python -m change_me
