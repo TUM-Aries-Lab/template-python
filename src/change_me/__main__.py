@@ -4,7 +4,7 @@ import argparse
 
 from loguru import logger
 
-from change_me.definitions import DEFAULT_LOG_LEVEL, LogLevel
+from change_me.config.definitions import DEFAULT_LOG_LEVEL, LogLevel
 from change_me.utils import setup_logger
 
 
