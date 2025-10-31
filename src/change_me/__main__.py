@@ -9,7 +9,11 @@ from change_me.utils import setup_logger
 
 
 def main(log_level: str = DEFAULT_LOG_LEVEL) -> None:
-    """Run the pipeline."""
+    """Run the main pipeline.
+
+    :param log_level: The log level to use.
+    :return: None
+    """
     setup_logger(filename="log_file", log_dir=None, log_level=log_level)
     logger.info("Hello, world!")
 
