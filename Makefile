@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 init:
 	python3 -m venv .venv
-	poetry install
+	poetry install --with dev
 	pre-commit install
 	poetry env info
 	@echo "Created virtual environment"
