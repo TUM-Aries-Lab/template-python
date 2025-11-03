@@ -71,7 +71,7 @@ lint.ignore = [
 fix = true
 
 # Sort imports automatically
-[tool.lint.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["change-me"]  # Replace it with your project name
 combine-as-imports = true
 
