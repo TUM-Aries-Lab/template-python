@@ -38,7 +38,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-ansi --with dev,lint
+          poetry install --no-interaction --no-ansi --with dev
 
       - name: Run Ruff
         run: |
