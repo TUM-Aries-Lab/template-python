@@ -1,7 +1,7 @@
+# template-python
 [![Coverage Status](https://coveralls.io/repos/github/TUM-Aries-Lab/template-python/badge.svg?branch=main)](https://coveralls.io/github/TUM-Aries-Lab/template-python?branch=main)
 ![Docker Image CI](https://github.com/TUM-Aries-Lab/template-python/actions/workflows/ci.yml/badge.svg)
 
-# template-python
 Simple README.md for a Python project template.
 
 ## Install
@@ -14,7 +14,6 @@ To install the library run: `pip install change-me`
 3. `make test` to run the test suite
 4. `make clean` to delete the temporary files and directories
 5. `poetry publish --build` to build and publish to https://pypi.org/project/change-me
-
 
 ## Module Usage
 ```
