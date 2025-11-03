@@ -7,11 +7,11 @@ Simple README.md for a Python project template.
 ## Install
 To install the library run:
 
-```pip install change-me```
+```pip install <your-package-name>```
 
 OR
 
-```pip install git+https://github.com/TUM-Aries-Lab/template-python.git@<specific-tag>```
+```pip install git+https://github.com/TUM-Aries-Lab/<your-package-name>.git@<specific-tag>```
 
 ## Development
 0. Install [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
