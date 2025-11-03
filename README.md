@@ -19,7 +19,14 @@ OR
 2. `make format` to format the code and check for errors
 3. `make test` to run the test suite
 4. `make clean` to delete the temporary files and directories
-5. `poetry publish --build` to build and publish to https://pypi.org/project/change-me
+
+## Publishing
+It's super easy to publish your own packages on PyPI. To build and publish this package run:
+
+```bash
+poetry publish --build
+```
+The package can then be found at: https://pypi.org/project/change-me
 
 ## Module Usage
 ```
