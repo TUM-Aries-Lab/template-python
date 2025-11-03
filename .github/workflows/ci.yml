@@ -71,7 +71,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --no-ansi --with dev,lint
+          poetry install --no-interaction --no-ansi --with dev
 
       - name: Run Mypy
         run: |
@@ -119,13 +119,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           poetry env use "${{ steps.py.outputs.python-path }}"
-          poetry install --no-interaction --no-ansi --with dev,test
+          poetry install --no-interaction --no-ansi --with dev
 
       - name: Sync dependencies (cache hit)
         if: steps.cache.outputs.cache-hit == 'true'
         run: |
           poetry env use "${{ steps.py.outputs.python-path }}"
-          poetry install --no-interaction --no-ansi --with dev,test
+          poetry install --no-interaction --no-ansi --with dev
 
       - name: Run Pytest
         run: |
