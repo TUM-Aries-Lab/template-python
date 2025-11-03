@@ -7,11 +7,11 @@ Simple README.md for a Python project template.
 ## Install
 To install the library run:
 
-```pip install change-me```
+```pip install <your-package-name>```
 
 OR
 
-```pip install git+https://github.com/TUM-Aries-Lab/template-python.git@<specific-tag>```
+```pip install git+https://github.com/TUM-Aries-Lab/<your-package-name>.git@<specific-tag>```
 
 ## Development
 0. Install [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
@@ -19,7 +19,14 @@ OR
 2. `make format` to format the code and check for errors
 3. `make test` to run the test suite
 4. `make clean` to delete the temporary files and directories
-5. `poetry publish --build` to build and publish to https://pypi.org/project/change-me
+
+## Publishing
+It's super easy to publish your own packages on PyPI. To build and publish this package run:
+
+```bash
+poetry publish --build
+```
+The package can then be found at: https://pypi.org/project/change-me
 
 ## Module Usage
 ```

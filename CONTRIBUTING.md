@@ -27,13 +27,16 @@ We welcome issues, bug reports, feature requests, and pull requests.
 * Follow the existing code style in the project.
 * Use descriptive names for variables, functions, and classes.
 * Add docstrings or comments where needed for clarity.
+   ```bash
+   make format   # easy command for quick formatting help
+   ```
 
 ### Testing
 * Ensure that your code runs without errors.
 * Add or update tests if applicable.
 * Run all tests before submitting:
   ```bash
-  make test
+  make test   # easy command to run all the tests
   ```
 
 ### Pull Requests

@@ -2,7 +2,7 @@ SHELL := /bin/bash
 
 init:
 	python3 -m venv .venv
-	poetry install
+	poetry install --with dev
 	pre-commit install
 	poetry env info
 	@echo "Created virtual environment"
@@ -29,7 +29,6 @@ clean:
 update:
 	poetry cache clear pypi --all
 	poetry update
-
 
 docker:
 	docker build --no-cache -f Dockerfile -t change_me-smoke .
