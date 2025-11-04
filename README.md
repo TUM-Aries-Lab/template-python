@@ -22,8 +22,8 @@ pip install git+https://github.com/TUM-Aries-Lab/<your-package-name>.git@<specif
 ## Development
 0. Install [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
 1. Install [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
-2. ```pyenv install <desired-python-version>```
-3. ```pyenv global <desired-python-version>```
+2. ```pyenv install <desired-python-version>  # install the required python version```
+3. ```pyenv global <desired-python-version>  # set the required python version```
 4. ```git clone git@github.com:TUM-Aries-Lab/template-python.git```
 5. `make init` to create the virtual environment and install dependencies
 6. `make format` to format the code and check for errors
@@ -40,7 +40,7 @@ poetry publish  # make sure your version in pyproject.toml is updated
 The package can then be found at: https://pypi.org/project/change-me
 
 ## Module Usage
-```bash
+```python
 """Basic docstring for my module."""
 
 from loguru import logger
