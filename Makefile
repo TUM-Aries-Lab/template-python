@@ -3,17 +3,24 @@ SHELL := /bin/bash
 init:
 	python3 -m venv .venv
 	poetry install --with dev
-	pre-commit install
+	poetry run pre-commit install
 	poetry env info
 	@echo "Created virtual environment"
 
 test:
-	poetry run pytest --cov=src/ --cov-report=term-missing --no-cov-on-fail
+	poetry run pytest --cov=src/ --cov-report=term-missing --no-cov-on-fail --cov-report=xml --cov-fail-under=10
+	rm .coverage
+
+lint:
+	poetry run ruff format
+	poetry run ruff check --fix
+
+typecheck:
+	poetry run mypy src/ tests/ --ignore-missing-imports
 
 format:
-	ruff format
-	ruff check --fix
-	poetry run mypy src/ tests/ --ignore-missing-imports
+	make lint
+	make typecheck
 
 clean:
 	rm -rf .venv
@@ -24,7 +31,7 @@ clean:
 	rm -rf juninit-pytest.xml
 	rm -rf logs/*
 	find . -name ".coverage*" -delete
-	find . -name --pycache__ -exec rm -r {} +
+	find . -name __pycache__ -exec rm -r {} +
 
 update:
 	poetry cache clear pypi --all
