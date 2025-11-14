@@ -8,7 +8,8 @@ init:
 	@echo "Created virtual environment"
 
 test:
-	poetry run pytest --cov=src/ --cov-report=term-missing --no-cov-on-fail
+	poetry run pytest --cov=src/ --cov-report=term-missing --no-cov-on-fail --cov-report=xml --cov-fail-under=10
+	rm .coverage
 
 format:
 	poetry run ruff format
@@ -24,7 +25,7 @@ clean:
 	rm -rf juninit-pytest.xml
 	rm -rf logs/*
 	find . -name ".coverage*" -delete
-	find . -name --pycache__ -exec rm -r {} +
+	find . -name __pycache__ -exec rm -r {} +
 
 update:
 	poetry cache clear pypi --all
