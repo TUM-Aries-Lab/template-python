@@ -11,10 +11,16 @@ test:
 	poetry run pytest --cov=src/ --cov-report=term-missing --no-cov-on-fail --cov-report=xml --cov-fail-under=10
 	rm .coverage
 
-format:
+lint:
 	poetry run ruff format
 	poetry run ruff check --fix
+
+typecheck:
 	poetry run mypy src/ tests/ --ignore-missing-imports
+
+format:
+	make lint
+	make typecheck
 
 clean:
 	rm -rf .venv
