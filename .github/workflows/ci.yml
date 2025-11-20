@@ -26,6 +26,8 @@ jobs:
 
       - name: Install UV
         uses: astral-sh/setup-uv@v1
+        with:
+          version: latest
 
       - name: Sync dependencies
         run: make init
@@ -47,6 +49,8 @@ jobs:
 
       - name: Install UV
         uses: astral-sh/setup-uv@v1
+        with:
+          version: latest
 
       - name: Sync dependencies
         run: make init
