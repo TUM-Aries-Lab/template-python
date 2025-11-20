@@ -1,19 +1,16 @@
 [project]
 name = "change-me"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple Python template"
 readme = "README.md"
-authors = [
-    { name = "Tsmorz", email = "tonysmoragiewicz@gmail.com" },
-]
+authors = [{ name = "Tsmorz", email = "tony.smoragiewicz@tum.de" }]
 requires-python = ">=3.11,<3.14"
 
 dependencies = [
     "numpy>=2.2.3",
     "loguru>=0.7.3",
 ]
-
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "ruff>=0.6.9",
     "mypy>=1.11",
@@ -87,9 +84,3 @@ line-ending = "lf"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
-[dependency-groups]
-dev = [
-    "pytest>=9.0.1",
-    "pytest-cov>=7.0.0",
-]
