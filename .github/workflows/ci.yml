@@ -24,23 +24,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Install UV
+        uses: astral-sh/setup-uv@v1
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
-
-      - name: Install dependencies
-        run: make init
+      - name: Sync dependencies
+        run: uv sync --all-groups
 
       - name: Run Ruff
-        run: make lint
+        run: uv run make lint
 
   # --------------------------------------------------------------------------
   # TYPE CHECK (Mypy)
@@ -54,23 +45,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Install UV
+        uses: astral-sh/setup-uv@v1
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
-
-      - name: Install dependencies
-        run: make init
+      - name: Sync dependencies
+        run: uv sync --all-groups
 
       - name: Run Mypy
-        run: make typecheck
+        run: uv run make typecheck
 
   # --------------------------------------------------------------------------
   # TESTS (Pytest + Coverage)
@@ -89,25 +71,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        id: py
-        uses: actions/setup-python@v5
+      - name: Install UV
+        uses: astral-sh/setup-uv@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          version: latest
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
+      - name: Set Python version
+        run: uv python install ${{ matrix.python-version }}
 
-      - name: Install dependencies (with dev)
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: make init
+      - name: Sync dependencies
+        run: uv sync --all-groups
 
       - name: Run Pytest
-        run: make test
+        run: uv run make test
 
       - name: Upload coverage XML artifact
         if: ${{ matrix.python-version == '3.12' }}
