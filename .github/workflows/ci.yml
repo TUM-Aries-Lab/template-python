@@ -28,10 +28,10 @@ jobs:
         uses: astral-sh/setup-uv@v1
 
       - name: Sync dependencies
-        run: uv sync --all-groups
+        run: make init
 
       - name: Run Ruff
-        run: uv run make lint
+        run: make lint
 
   # --------------------------------------------------------------------------
   # TYPE CHECK (Mypy)
@@ -49,10 +49,10 @@ jobs:
         uses: astral-sh/setup-uv@v1
 
       - name: Sync dependencies
-        run: uv sync --all-groups
+        run: make init
 
       - name: Run Mypy
-        run: uv run make typecheck
+        run: make typecheck
 
   # --------------------------------------------------------------------------
   # TESTS (Pytest + Coverage)
@@ -80,10 +80,10 @@ jobs:
         run: uv python install ${{ matrix.python-version }}
 
       - name: Sync dependencies
-        run: uv sync --all-groups
+        run: make init
 
       - name: Run Pytest
-        run: uv run make test
+        run: make test
 
       - name: Upload coverage XML artifact
         if: ${{ matrix.python-version == '3.12' }}
