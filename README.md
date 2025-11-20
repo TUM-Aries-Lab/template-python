@@ -34,8 +34,8 @@ uv install git+https://github.com/TUM-Aries-Lab/<your-package-name>.git@<specifi
 It's super easy to publish your own packages on PyPI. To build and publish this package run:
 
 ```bash
-poetry build
-poetry publish  # make sure your version in pyproject.toml is updated
+uv build
+uv publish  # make sure your version in pyproject.toml is updated
 ```
 The package can then be found at: https://pypi.org/project/change-me
 
@@ -57,5 +57,5 @@ if __name__ == "__main__":
 
 ## Program Usage
 ```bash
-poetry run python -m change_me
+uv run python -m change_me
 ```
