@@ -1,6 +1,5 @@
 # Contributing to This Project
 
-First of all, thank you for considering contributing! 🎉  
 We welcome issues, bug reports, feature requests, and pull requests.
 
 ---
@@ -13,12 +12,18 @@ We welcome issues, bug reports, feature requests, and pull requests.
 * Include steps to reproduce, expected behavior, and screenshots/logs if relevant.
 
 ### Making Changes
+0. Pull recent changes from main:
+   ```bash
+   git switch main
+   git pull
+   ```
 1. Create a new branch for your changes:
    ```bash
    git checkout -b my-new-feature
    ```
 2. Make your changes and commit with a clear message:
    ```bash
+   git add <files-that-changed>
    git commit -m "Add feature: my-new-feature"
    ```
 3. Push to your fork and open a Pull Request (PR).

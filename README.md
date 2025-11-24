@@ -8,27 +8,22 @@ Do ***NOT*** clone this repository. Please use it as a template instead. This re
 
 ## Install
 To install the library run:
-
 ```bash
-uv install <your-package-name>
+uv pip install change-me==latest
 ```
-
 OR
-
 ```bash
-uv install git+https://github.com/TUM-Aries-Lab/<your-package-name>.git@<specific-tag>
+uv add git+https://github.com/TUM-Aries-Lab/change-me.git@<specific-tag>  # need credentials
 ```
 
 ## Development
-0. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
-1. Install [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#installation)
-2. ```pyenv install <desired-python-version>  # install the required python version```
-3. ```pyenv global <desired-python-version>  # set the required python version```
-4. ```git clone git@github.com:TUM-Aries-Lab/template-python.git```
-5. `make init` to create the virtual environment and install dependencies
-6. `make format` to format the code and check for errors
-7. `make test` to run the test suite
-8. `make clean` to delete the temporary files and directories
+0. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) from Astral.
+1. `git clone git@github.com:TUM-Aries-Lab/change-me.git`
+2. `make init` to create the virtual environment and install dependencies
+3. `make format` to format the code and check for errors
+4. `make test` to run the test suite
+5. `make clean` to delete the temporary files and directories
+
 
 ## Publishing
 It's super easy to publish your own packages on PyPI. To build and publish this package run:
@@ -45,7 +40,7 @@ The package can then be found at: https://pypi.org/project/change-me
 
 from loguru import logger
 
-from change_me.config import definitions
+from change_me import definitions
 
 def main() -> None:
     """Run a simple demonstration."""

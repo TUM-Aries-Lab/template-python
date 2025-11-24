@@ -3,7 +3,7 @@
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from change_me.config.definitions import LogLevel
+from change_me.definitions import LogLevel
 from change_me.utils import setup_logger
 
 
