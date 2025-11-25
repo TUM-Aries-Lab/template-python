@@ -4,7 +4,7 @@ import argparse
 
 from loguru import logger
 
-from change_me.config.definitions import DEFAULT_LOG_LEVEL, LogLevel
+from change_me.definitions import DEFAULT_LOG_LEVEL, LogLevel
 from change_me.utils import setup_logger
 
 
@@ -41,4 +41,4 @@ if __name__ == "__main__":  # pragma: no cover
     )
     args = parser.parse_args()
 
-    main(log_level=args.log_level)
+    main(log_level=args.log_level, stderr_level=args.stderr_level)

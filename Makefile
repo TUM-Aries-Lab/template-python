@@ -6,7 +6,7 @@ init:  # ENV SETUP
 	@echo "Environment initialized with uv."
 
 test:
-	uv run pytest --cov=src --cov-report=term-missing --no-cov-on-fail --cov-report=xml --cov-fail-under=10
+	uv run pytest --cov=src --cov-report=term-missing --no-cov-on-fail --cov-report=xml --cov-fail-under=90
 	rm .coverage
 
 lint:
@@ -29,14 +29,16 @@ clean:
 	rm -rf junit-pytest.xml
 	rm -rf logs/*
 	find . -name ".coverage*" -delete
+	find . -name "coverage.xml" -delete
 	find . -name "__pycache__" -exec rm -r {} +
 
 update:
-	uv update --all-groups
+	uv sync --upgrade --all-groups
+	uv run pre-commit autoupdate
 
-deep-update:
-	uv cache clear pypi --all
-	uv update --all-groups
+update-deep:
+	uv cache clean pypi
+	make update
 
 docker:
 	docker build --no-cache -f Dockerfile -t change_me-smoke .
