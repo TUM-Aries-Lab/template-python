@@ -54,3 +54,33 @@ if __name__ == "__main__":
 ```bash
 uv run python -m change_me
 ```
+
+## Structure
+The following tree shows the important permanent files.
+<!-- TREE-START -->
+```
+├── src
+│   └── change_me
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── definitions.py
+│       └── utils.py
+├── tests
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── main_test.py
+│   └── utils_test.py
+├── .dockerignore
+├── .gitignore
+├── .pre-commit-config.yaml
+├── .python-version
+├── CONTRIBUTING.md
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── pyproject.toml
+├── repo_tree.py
+└── uv.lock
+```
+<!-- TREE-END -->
