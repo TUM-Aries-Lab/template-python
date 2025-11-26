@@ -1,0 +1,11 @@
+{
+  "repo_name": "template-python",
+  "module_name": "change_me",
+  "package_name": "{{ cookiecutter.repo_name }}",
+  "org_name": "TUM-Aries-Lab",
+  "description": "Basic description for the repo.",
+  "author_name": "Tony Smoragiewicz",
+  "author_email": "tony.smoragiewicz@tum.de",
+  "python_version": "3.12",
+  "version": "0.0.1"
+}
