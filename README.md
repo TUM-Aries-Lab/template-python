@@ -54,3 +54,7 @@ if __name__ == "__main__":
 ```bash
 uv run python -m change_me
 ```
+
+## Structure
+<!-- TREE-START -->
+<!-- TREE-END -->
