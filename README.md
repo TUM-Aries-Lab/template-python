@@ -56,5 +56,6 @@ uv run python -m change_me
 ```
 
 ## Structure
+The following tree shows the important permament files.
 <!-- TREE-START -->
 <!-- TREE-END -->
