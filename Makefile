@@ -46,3 +46,6 @@ docker:
 
 app:
 	uv run python -m change_me
+
+tree:
+	uv run python repo_tree.py --update-readme
