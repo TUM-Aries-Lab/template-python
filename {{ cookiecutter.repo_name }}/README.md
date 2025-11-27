@@ -5,22 +5,12 @@
 
 Simple README.md for a Python project template.
 
-Do ***NOT*** clone this repository.  
-Please use it as a template instead—this README is meant to help you get started quickly.
-
-# Names Changes
-After adjusting the names in `cookiecutter.json` move into the repo and run:
-```bash
-cookiecutter .
-```
----
-
 ## Install
 
 To install the library from PyPI:
 
 ```bash
-uv pip install {{ cookiecutter.repo_name | replace('-', '_') }}==latest
+uv pip install {{ cookiecutter.package_name }}==latest
 ```
 OR
 ```bash
@@ -29,7 +19,7 @@ uv add git+https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}.git@<sp
 
 ## Development
 0. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) from Astral.
-1. `git clone git@github.com:TUM-Aries-Lab/change-me.git`
+1. `git clone git@github.com:TUM-Aries-Lab/{{ cookiecutter.repo_name }}.git`
 2. `make init` to create the virtual environment and install dependencies
 3. `make format` to format the code and check for errors
 4. `make test` to run the test suite
@@ -43,7 +33,7 @@ It's super easy to publish your own packages on PyPI. To build and publish this 
 uv build
 uv publish  # make sure your version in pyproject.toml is updated
 ```
-The package can then be found at: https://pypi.org/project/change-me
+The package can then be found at: https://pypi.org/project/{{ cookiecutter.package_name }}
 
 ## Module Usage
 ```python
