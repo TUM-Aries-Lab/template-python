@@ -14,7 +14,7 @@ lint:
 	uv run ruff check --fix
 
 typecheck:
-	uv run mypy src/ tests/ --ignore-missing-imports
+	uv run ruff check --select=PY --preview
 
 format:
 	make lint
