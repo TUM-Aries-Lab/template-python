@@ -21,7 +21,7 @@ dev = [
 ]
 
 [project.urls]
-homepage = "https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}"
+homepage = "https://github.com/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}"
 
 [tool.ruff]
 line-length = 88

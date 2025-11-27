@@ -4,7 +4,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from {{ cookiecutter.package_name }}.definitions import (
+from {{ cookiecutter.module_name }}.definitions import (
     DATE_FORMAT,
     DEFAULT_LOG_FILENAME,
     DEFAULT_LOG_LEVEL,

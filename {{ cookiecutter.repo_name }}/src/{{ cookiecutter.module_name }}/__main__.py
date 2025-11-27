@@ -2,8 +2,8 @@
 
 import argparse
 
-from {{ cookiecutter.package_name }}.definitions import DEFAULT_LOG_LEVEL, LogLevel
-from {{ cookiecutter.package_name }}.utils import setup_logger
+from {{ cookiecutter.module_name }}.definitions import DEFAULT_LOG_LEVEL, LogLevel
+from {{ cookiecutter.module_name }}.utils import setup_logger
 from loguru import logger
 
 

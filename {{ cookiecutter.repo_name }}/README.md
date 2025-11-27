@@ -1,7 +1,7 @@
 # {{ cookiecutter.repo_name }}
 
-[![Coverage Status](https://coveralls.io/repos/github/TUM-Aries-Lab/{{ cookiecutter.repo_name }}/badge.svg?branch=main)](https://coveralls.io/github/TUM-Aries-Lab/{{ cookiecutter.repo_name }}?branch=main)
-![Docker Image CI](https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}/actions/workflows/ci.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}/badge.svg?branch=main)](https://coveralls.io/github/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}?branch=main)
+![Docker Image CI](https://github.com/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}/actions/workflows/ci.yml/badge.svg)
 
 Simple README.md for a Python project template.
 
@@ -14,12 +14,12 @@ uv pip install {{ cookiecutter.package_name }}==latest
 ```
 OR
 ```bash
-uv add git+https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}.git@<specific-tag>  # needs credentials
+uv add git+https://github.com/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}.git@<specific-tag>  # needs credentials
 ```
 
 ## Development
 0. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) from Astral.
-1. `git clone git@github.com:TUM-Aries-Lab/{{ cookiecutter.repo_name }}.git`
+1. `git clone git@github.com:{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}.git`
 2. `make init` to create the virtual environment and install dependencies
 3. `make format` to format the code and check for errors
 4. `make test` to run the test suite
