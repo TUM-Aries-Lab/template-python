@@ -41,11 +41,11 @@ update-deep:
 	make update
 
 docker:
-	docker build --no-cache -f Dockerfile -t change_me-smoke .
-	docker run --rm change_me-smoke
+	docker build --no-cache -f Dockerfile -t {{ cookiecutter.module_name }}-smoke .
+	docker run --rm {{ cookiecutter.module_name }}-smoke
 
 app:
-	uv run python -m change_me
+	uv run python -m {{ cookiecutter.module_name }}
 
 tree:
 	uv run python repo_tree.py --update-readme
