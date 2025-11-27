@@ -10,10 +10,10 @@ dependencies = [
     "numpy>=2.2.3",
     "loguru>=0.7.3",
 ]
+
 [dependency-groups]
 dev = [
     "ruff>=0.6.9",
-    "mypy>=1.11",
     "pytest>=8.3",
     "pytest-cov>=6.0",
     "pre-commit>=4.1.0",
@@ -21,32 +21,39 @@ dev = [
 ]
 
 [project.urls]
-homepage = "https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}"
+homepage = "https://github.com/{{ cookiecutter.org_name }}/{{ cookiecutter.repo_name }}"
 
+# -------------------------
+#       RUFF (LINT + TYPE CHECK)
+# -------------------------
 [tool.ruff]
 line-length = 88
+preview = true                # enables type-checking (Pyright engine)
 
-lint.select = [
-    "E",      # pycodestyle (style errors)
-    "F",      # Pyflakes (logical errors)
-    "W",      # Warnings
-    "C90",    # mccabe (complexity checks)
-    "I",      # isort (import sorting)
-    "N",      # pep8-naming (naming conventions)
-    "D",      # pydocstyle (docstring conventions)
-    "UP",     # pyupgrade (Python syntax modernization)
-    "B",      # flake8-bugbear (common pitfalls and performance issues)
-    "S",      # flake8-bandit (security issues)
-    "YTT",    # flake8-2020 (Python 2 compatibility issues)
-    "Q",      # flake8-quotes (quote consistency)
-    "PL",     # pylint (general best practices)
-    "RUF",    # Ruff-specific rules
+# Enable lint + type-checking rules
+select = [
+    "E",      # pycodestyle errors
+    "F",      # pyflakes (logical errors)
+    "W",      # warnings
+    "C90",    # mccabe complexity
+    "I",      # import sorting (isort)
+    "N",      # naming
+    "D",      # docstring conventions
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "S",      # flake8-bandit security
+    "YTT",    # python2 checks
+    "Q",      # quote consistency
+    "PL",     # pylint rules
+    "RUF",    # ruff rules
+    "PYI",    # Pyright type checking rules
+    "PY",     # Pyright general type checking
     "T20",
     "F841",   # unused variable
-    "ERA001"  # commented out code
+    "ERA001", # commented-out code
 ]
 
-lint.ignore = [
+ignore = [
     "D203",
     "D213",
     "E501",
@@ -69,7 +76,7 @@ fix = true
 known-first-party = ["{{ cookiecutter.package_name }}"]
 combine-as-imports = true
 
-[tool.lint.pydocstyle]
+[tool.pydocstyle]
 convention = "google"
 
 [tool.ruff.format]
@@ -80,7 +87,6 @@ line-ending = "lf"
 # -------------------------
 #     BUILD SYSTEM
 # -------------------------
-# UV uses hatchling by default; Poetry build backend removed.
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

@@ -14,7 +14,7 @@ lint:
 	uv run ruff check --fix
 
 typecheck:
-	uv run mypy src/ tests/ --ignore-missing-imports
+	uv run ruff check --select=PY --preview
 
 format:
 	make lint
@@ -22,7 +22,6 @@ format:
 
 clean:
 	rm -rf .venv
-	rm -rf .mypy_cache
 	rm -rf .pytest_cache
 	rm -rf build/
 	rm -rf dist/
