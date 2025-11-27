@@ -43,7 +43,7 @@ It's super easy to publish your own packages on PyPI. To build and publish this 
 uv build
 uv publish  # make sure your version in pyproject.toml is updated
 ```
-The package can then be found at: https://pypi.org/project/change-me
+The package can then be found at: https://pypi.org/project/{{ cookiecutter.repo_name | replace('-', '_') }}
 
 ## Module Usage
 ```python
