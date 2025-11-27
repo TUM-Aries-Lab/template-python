@@ -22,7 +22,6 @@ format:
 
 clean:
 	rm -rf .venv
-	rm -rf .mypy_cache
 	rm -rf .pytest_cache
 	rm -rf build/
 	rm -rf dist/
