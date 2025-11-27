@@ -1,19 +1,30 @@
-# template-python
-[![Coverage Status](https://coveralls.io/repos/github/TUM-Aries-Lab/template-python/badge.svg?branch=main)](https://coveralls.io/github/TUM-Aries-Lab/template-python?branch=main)
-![Docker Image CI](https://github.com/TUM-Aries-Lab/template-python/actions/workflows/ci.yml/badge.svg)
+# {{ cookiecutter.repo_name }}
+
+[![Coverage Status](https://coveralls.io/repos/github/TUM-Aries-Lab/{{ cookiecutter.repo_name }}/badge.svg?branch=main)](https://coveralls.io/github/TUM-Aries-Lab/{{ cookiecutter.repo_name }}?branch=main)
+![Docker Image CI](https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}/actions/workflows/ci.yml/badge.svg)
 
 Simple README.md for a Python project template.
 
-Do ***NOT*** clone this repository. Please use it as a template instead. This readme is just here to serve as a template for you to get started faster.
+Do ***NOT*** clone this repository.  
+Please use it as a template instead—this README is meant to help you get started quickly.
+
+# Names Changes
+After adjusting the names in `cookiecutter.json` move into the repo and run:
+```bash
+cookiecutter .
+```
+---
 
 ## Install
-To install the library run:
+
+To install the library from PyPI:
+
 ```bash
-uv pip install change-me==latest
+uv pip install {{ cookiecutter.repo_name | replace('-', '_') }}==latest
 ```
 OR
 ```bash
-uv add git+https://github.com/TUM-Aries-Lab/change-me.git@<specific-tag>  # need credentials
+uv add git+https://github.com/TUM-Aries-Lab/{{ cookiecutter.repo_name }}.git@<specific-tag>  # needs credentials
 ```
 
 ## Development
@@ -40,7 +51,7 @@ The package can then be found at: https://pypi.org/project/change-me
 
 from loguru import logger
 
-from change_me import definitions
+from {{ cookiecutter.module_name }} import definitions
 
 def main() -> None:
     """Run a simple demonstration."""
@@ -52,7 +63,7 @@ if __name__ == "__main__":
 
 ## Program Usage
 ```bash
-uv run python -m change_me
+uv run python -m {{ cookiecutter.module_name }}
 ```
 
 ## Structure
@@ -60,7 +71,7 @@ The following tree shows the important permanent files.
 <!-- TREE-START -->
 ```
 ├── src
-│   └── change_me
+│   └── {{ cookiecutter.module_name }}
 │       ├── __init__.py
 │       ├── __main__.py
 │       ├── definitions.py
