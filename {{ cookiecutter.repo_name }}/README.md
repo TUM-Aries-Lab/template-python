@@ -57,7 +57,7 @@ uv run python -m {{ cookiecutter.module_name }}
 ```
 
 ## Structure
-The following tree shows the important permanent files.
+The following tree shows the important permanent files. Run `make tree` to update.
 <!-- TREE-START -->
 ```
 ├── src
