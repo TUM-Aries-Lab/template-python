@@ -4,7 +4,7 @@ Do ***NOT*** clone this repository. Please use it as a template instead—this R
 
 The file cookiecutter.json has the following contents:
 ```
-{å
+{
   "repo_name": "new-repo",
   "module_name": "new_repo",
   "package_name": "{{ cookiecutter.repo_name }}",
