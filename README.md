@@ -18,7 +18,8 @@ The file cookiecutter.json has the following contents:
 ```
 
 ## Steps
-1. Make the necessary names changes in `cookiecutter.json` and then run:
-2. ` cookiecutter .  # This will create a new repo with the correct names in place.`
-3. You can then delete everything but the code in your newly generated folder.
-4. Commit your new changes.
+1. Generate the new repo: `cookiecutter .`
+2. Delete the cookiecutter folder: `rm -rf \{\{\ cookiecutter.repo_name\ \}\}`
+3. Move all code out of the inner folder: `mv <repo_name>/* .`
+4. Delete the inner folder: `rm -r <repo_name>`
+5. Delete the cookiecutter.json: `rm cookiecutter.json`.
