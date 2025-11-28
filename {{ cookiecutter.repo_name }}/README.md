@@ -64,12 +64,13 @@ The following tree shows the important permanent files. Run `make tree` to updat
 │   └── {{ cookiecutter.module_name }}
 │       ├── __init__.py
 │       ├── __main__.py
+│       ├── app.py
 │       ├── definitions.py
 │       └── utils.py
 ├── tests
 │   ├── __init__.py
 │   ├── conftest.py
-│   ├── main_test.py
+│   ├── app_test.py
 │   └── utils_test.py
 ├── .dockerignore
 ├── .gitignore
