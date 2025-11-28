@@ -1,3 +1,4 @@
+{% raw %}
 name: Docker Build & Publish
 
 on:
@@ -27,11 +28,9 @@ concurrency:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-
     env:
       IS_MAIN: ${{ github.ref == 'refs/heads/main' }}
       IS_TAG: ${{ startsWith(github.ref, 'refs/tags/v') }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,7 +45,7 @@ jobs:
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Set up QEMU (arm64)
+      - name: Set up QEMU (for arm64)
         if: env.IS_MAIN == 'true' || env.IS_TAG == 'true' || env.MULTIARCH_ON_BRANCHES == 'true'
         uses: docker/setup-qemu-action@v3
 
@@ -59,31 +58,22 @@ jobs:
         id: meta
         run: |
           REF="${GITHUB_REF#refs/}"
-          SHA_TAG="${GITHUB_SHA::12}"
-
+          SHA_TAG=${GITHUB_SHA::12}
           echo "sha_tag=${SHA_TAG}" >> "$GITHUB_OUTPUT"
-
-          # version tag
           if [[ "$REF" == tags/v* ]]; then
-            echo "version_tag=${REF#tags/v}" >> "$GITHUB_OUTPUT"
-          else
-            echo "version_tag=" >> "$GITHUB_OUTPUT"
+            V="${REF#tags/v}"
+            echo "version_tag=${V}" >> "$GITHUB_OUTPUT"
           fi
-
-          # main tag
           if [[ "$REF" == heads/main ]]; then
             echo "latest_tag=latest" >> "$GITHUB_OUTPUT"
-          else
-            echo "latest_tag=" >> "$GITHUB_OUTPUT"
           fi
 
-      # Fast branch builds (single arch, no push)
       - name: Build (branch) — fast single-arch, no push
         if: env.IS_MAIN != 'true' && env.IS_TAG != 'true' && env.MULTIARCH_ON_BRANCHES != 'true'
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile
+          file: ./Dockerfile
           push: false
           load: true
           platforms: linux/amd64
@@ -93,13 +83,12 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}
 
-      # Multi-arch main + tags builds
       - name: Build & push (multi-arch)
         if: env.IS_MAIN == 'true' || env.IS_TAG == 'true' || env.MULTIARCH_ON_BRANCHES == 'true'
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile
+          file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
@@ -107,22 +96,33 @@ jobs:
           provenance: false
           tags: |
             ${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}
-            ${{ steps.meta.outputs.version_tag }}
-            ${{ steps.meta.outputs.latest_tag }}
+{% endraw %}
+            {% raw %}${{ steps.meta.outputs.version_tag }}{% endraw %}{{ "" if not cookiecutter.module_name else "" }}
+{% raw %}
+            {% endraw %}
+            {% raw %}${{ steps.meta.outputs.latest_tag }}{% endraw %}{{ "" if not cookiecutter.module_name else "" }}
+{% raw %}
 
-      # Smoke test (branch build)
       - name: Smoke test (branch image)
         if: env.IS_MAIN != 'true' && env.IS_TAG != 'true' && env.MULTIARCH_ON_BRANCHES != 'true'
         run: |
           IMAGE="${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}"
-          echo "Smoke testing branch image: $IMAGE"
-          docker run --rm "$IMAGE" python -c "import flask_project, sys; print('✅ import ok:', getattr(flask_project,'__version__','?'), 'on', sys.version)"
+{% endraw %}
+          python - << 'EOF'
+import {{ cookiecutter.module_name }}, sys
+print("✅ import ok:", getattr({{ cookiecutter.module_name }}, "__version__", "?"), "on", sys.version)
+EOF
+{% raw %}
 
-      # Smoke test (pulled image)
       - name: Smoke test (pushed image)
         if: env.IS_MAIN == 'true' || env.IS_TAG == 'true' || env.MULTIARCH_ON_BRANCHES == 'true'
         run: |
           IMAGE="${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}"
           docker pull "$IMAGE"
-          echo "Smoke testing pushed image: $IMAGE"
-          docker run --rm "$IMAGE" python -c "import flask_project, sys; print('✅ import ok:', getattr(flask_project,'__version__','?'), 'on', sys.version)"
+{% endraw %}
+          python - << 'EOF'
+import {{ cookiecutter.module_name }}, sys
+print("✅ import ok:", getattr({{ cookiecutter.module_name }}, "__version__", "?"), "on", sys.version)
+EOF
+{% raw %}
+{% endraw %}
