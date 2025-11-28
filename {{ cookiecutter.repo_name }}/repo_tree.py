@@ -16,6 +16,7 @@ from loguru import logger
 
 START_MARKER = "<!-- TREE-START -->"
 END_MARKER = "<!-- TREE-END -->"
+ENCODING = "utf-8"
 
 # Manual ignores are still allowed
 MANUAL_IGNORE = {
@@ -108,7 +109,7 @@ def generate_markdown_tree() -> str:
 
 def update_readme_block(readme_path: Path) -> None:
     """Replace the section between markers with the generated tree."""
-    readme = readme_path.read_text().splitlines()
+    readme = readme_path.read_text(encoding=ENCODING).splitlines()
 
     if START_MARKER not in readme or END_MARKER not in readme:
         raise RuntimeError(
@@ -121,11 +122,9 @@ def update_readme_block(readme_path: Path) -> None:
     tree = generate_markdown_tree().splitlines()
 
     new_readme = readme[:start] + tree + readme[end:]
-    readme_path.write_text("\n".join(new_readme))
+    readme_path.write_text("\n".join(new_readme), encoding=ENCODING)
 
-    logger.success(
-        "✅ README updated with latest repo tree (gitignored files excluded)."
-    )
+    logger.success("README updated with latest repo tree (gitignored files excluded).")
 
 
 def main() -> None:
