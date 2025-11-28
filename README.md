@@ -18,8 +18,6 @@ The file cookiecutter.json has the following contents:
 ```
 
 ## Steps
-1. Generate the new repo: `cookiecutter .`
-2. Delete the cookiecutter folder: `rm -rf \{\{\ cookiecutter.repo_name\ \}\}`
-3. Move all code out of the inner folder: `mv <repo_name>/* .`
-4. Delete the inner folder: `rm -r <repo_name>`
-5. Delete the cookiecutter.json: `rm cookiecutter.json`.
+1. Change premissions `chmod +x setup.sh`
+2. Run the bash script: `./setup.sh`
+3. Enter in your desired field info
