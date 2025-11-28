@@ -108,10 +108,7 @@ jobs:
         run: |
           IMAGE="${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}"
 {% endraw %}
-          python - << 'EOF'
-import {{ cookiecutter.module_name }}, sys
-print("✅ import ok:", getattr({{ cookiecutter.module_name }}, "__version__", "?"), "on", sys.version)
-EOF
+          docker run --rm "$IMAGE" python -c "import {{ cookiecutter.module_name }}, sys; print('✅ import ok:', getattr({{ cookiecutter.module_name }},'__version__','?'), 'on', sys.version)"
 {% raw %}
 
       - name: Smoke test (pushed image)
@@ -119,10 +116,8 @@ EOF
         run: |
           IMAGE="${{ env.REGISTRY }}/${{ steps.repo.outputs.image_name_lc }}:${{ steps.meta.outputs.sha_tag }}"
           docker pull "$IMAGE"
+
 {% endraw %}
-          python - << 'EOF'
-import {{ cookiecutter.module_name }}, sys
-print("✅ import ok:", getattr({{ cookiecutter.module_name }}, "__version__", "?"), "on", sys.version)
-EOF
+          docker run --rm "$IMAGE" python -c "import {{ cookiecutter.module_name }}, sys; print('✅ import ok:', getattr({{ cookiecutter.module_name }},'__version__','?'), 'on', sys.version)"
 {% raw %}
 {% endraw %}
