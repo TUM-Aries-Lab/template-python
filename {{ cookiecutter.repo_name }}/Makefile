@@ -14,7 +14,7 @@ lint:
 	uv run ruff check --fix
 
 typecheck:
-	uv run ruff check --select=PY --preview
+	uv run pyright src
 
 format:
 	make lint
