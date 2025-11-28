@@ -21,3 +21,4 @@ The file cookiecutter.json has the following contents:
 1. Change premissions `chmod +x setup.sh`
 2. Run the bash script: `./setup.sh`
 3. Enter in your desired field info
+4. Delete the `setup.sh` file
