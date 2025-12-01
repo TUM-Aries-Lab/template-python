@@ -85,9 +85,20 @@ quote-style = "double"
 indent-style = "space"
 line-ending = "lf"
 
-# -------------------------
-#     BUILD SYSTEM
-# -------------------------
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+# Tell hatchling where the package lives (src layout)
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{ cookiecutter.package_name }}"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/{{ cookiecutter.package_name }}",
+  "README.md",
+  "LICENSE",
+]

@@ -48,3 +48,9 @@ app:
 
 tree:
 	uv run python repo_tree.py --update-readme
+
+build:
+	uv build
+	unzip -l dist/*.whl
+	unzip -p dist/*.whl */METADATA
+
