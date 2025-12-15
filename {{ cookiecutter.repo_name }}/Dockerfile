@@ -1,11 +1,13 @@
 # syntax=docker/dockerfile:1.7-labs
 FROM python:3.12-slim
 
-# Fast, deterministic behavior
-ENV PYTHONDONTWRITEBYTECODE=1 \
+# Speed + deterministic behavior
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-# Select the package and version at build time
+# Select package + version at build-time
 ARG PKG={{ cookiecutter.module_name }}
 ARG VER=latest
 ENV PKG=${PKG} VER=${VER}
