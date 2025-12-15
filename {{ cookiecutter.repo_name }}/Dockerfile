@@ -7,7 +7,7 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
-# Select package + version at build-time
+# Select the package and version at build time
 ARG PKG={{ cookiecutter.module_name }}
 ARG VER=latest
 ENV PKG=${PKG} VER=${VER}
